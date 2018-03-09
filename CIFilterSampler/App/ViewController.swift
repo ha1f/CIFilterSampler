@@ -72,6 +72,9 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     private func update(withFilterName filterName: String) {
+        guard filterName != currentFilter?.filterName else {
+            return
+        }
         currentParameters = [:]
         guard let filter = CIFilter(name: filterName) else {
             currentFilter = nil
@@ -101,7 +104,12 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             }
         }
         
-        imageView.image = filter.outputImage?.asUIImage()
+        DispatchQueue.global(qos: .background).async { [weak self] in
+            let image = filter.outputImage?.asUIImage()
+            DispatchQueue.main.async { [weak self] in
+                self?.imageView.image = image
+            }
+        }
         
         referenceButton.isEnabled = filter.referenceDocumentationUrl != nil
     }
