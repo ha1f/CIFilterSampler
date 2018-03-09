@@ -17,6 +17,7 @@
 		56016685205275C8007996AD /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56016684205275C8007996AD /* CIImage+Extension.swift */; };
 		5601668A205277D4007996AD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56016689205277D4007996AD /* FilterCell.swift */; };
 		56A8847820527D4C00A0AB40 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A8847720527D4C00A0AB40 /* Lenna.png */; };
+		56A8847A2052967500A0AB40 /* ParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A884792052967500A0AB40 /* ParameterCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +45,7 @@
 		56016684205275C8007996AD /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
 		56016689205277D4007996AD /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
 		56A8847720527D4C00A0AB40 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
+		56A884792052967500A0AB40 /* ParameterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -144,6 +146,7 @@
 			isa = PBXGroup;
 			children = (
 				56016689205277D4007996AD /* FilterCell.swift */,
+				56A884792052967500A0AB40 /* ParameterCell.swift */,
 			);
 			path = Cell;
 			sourceTree = "<group>";
@@ -269,6 +272,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				56016663205272D7007996AD /* ViewController.swift in Sources */,
+				56A8847A2052967500A0AB40 /* ParameterCell.swift in Sources */,
 				56016685205275C8007996AD /* CIImage+Extension.swift in Sources */,
 				56016683205275B5007996AD /* CIFilter+Extension.swift in Sources */,
 				56016661205272D7007996AD /* AppDelegate.swift in Sources */,
