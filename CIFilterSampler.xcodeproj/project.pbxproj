@@ -13,6 +13,10 @@
 		56016668205272D7007996AD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 56016667205272D7007996AD /* Assets.xcassets */; };
 		5601666B205272D7007996AD /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 56016669205272D7007996AD /* LaunchScreen.storyboard */; };
 		56016676205272D7007996AD /* CIFilterSamplerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56016675205272D7007996AD /* CIFilterSamplerTests.swift */; };
+		56016683205275B5007996AD /* CIFilter+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56016682205275B5007996AD /* CIFilter+Extension.swift */; };
+		56016685205275C8007996AD /* CIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56016684205275C8007996AD /* CIImage+Extension.swift */; };
+		5601668A205277D4007996AD /* FilterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56016689205277D4007996AD /* FilterCell.swift */; };
+		56A8847820527D4C00A0AB40 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A8847720527D4C00A0AB40 /* Lenna.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -36,6 +40,10 @@
 		56016671205272D7007996AD /* CIFilterSamplerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = CIFilterSamplerTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		56016675205272D7007996AD /* CIFilterSamplerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CIFilterSamplerTests.swift; sourceTree = "<group>"; };
 		56016677205272D7007996AD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		56016682205275B5007996AD /* CIFilter+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIFilter+Extension.swift"; sourceTree = "<group>"; };
+		56016684205275C8007996AD /* CIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CIImage+Extension.swift"; sourceTree = "<group>"; };
+		56016689205277D4007996AD /* FilterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FilterCell.swift; sourceTree = "<group>"; };
+		56A8847720527D4C00A0AB40 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,9 +85,8 @@
 		5601665F205272D7007996AD /* CIFilterSampler */ = {
 			isa = PBXGroup;
 			children = (
-				56016660205272D7007996AD /* AppDelegate.swift */,
-				56016662205272D7007996AD /* ViewController.swift */,
-				56016664205272D7007996AD /* Main.storyboard */,
+				5601668020527594007996AD /* Common */,
+				56016686205277AF007996AD /* App */,
 				56016667205272D7007996AD /* Assets.xcassets */,
 				56016669205272D7007996AD /* LaunchScreen.storyboard */,
 				5601666C205272D7007996AD /* Info.plist */,
@@ -94,6 +101,67 @@
 				56016677205272D7007996AD /* Info.plist */,
 			);
 			path = CIFilterSamplerTests;
+			sourceTree = "<group>";
+		};
+		5601668020527594007996AD /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				56016681205275A4007996AD /* Extension */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		56016681205275A4007996AD /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				56016682205275B5007996AD /* CIFilter+Extension.swift */,
+				56016684205275C8007996AD /* CIImage+Extension.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
+		56016686205277AF007996AD /* App */ = {
+			isa = PBXGroup;
+			children = (
+				56A8847520527D2200A0AB40 /* Resource */,
+				56016687205277C5007996AD /* View */,
+				56016660205272D7007996AD /* AppDelegate.swift */,
+				56016662205272D7007996AD /* ViewController.swift */,
+				56016664205272D7007996AD /* Main.storyboard */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		56016687205277C5007996AD /* View */ = {
+			isa = PBXGroup;
+			children = (
+				56016688205277CA007996AD /* Cell */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		56016688205277CA007996AD /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				56016689205277D4007996AD /* FilterCell.swift */,
+			);
+			path = Cell;
+			sourceTree = "<group>";
+		};
+		56A8847520527D2200A0AB40 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				56A8847620527D2800A0AB40 /* Image */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		56A8847620527D2800A0AB40 /* Image */ = {
+			isa = PBXGroup;
+			children = (
+				56A8847720527D4C00A0AB40 /* Lenna.png */,
+			);
+			path = Image;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -181,6 +249,7 @@
 			files = (
 				5601666B205272D7007996AD /* LaunchScreen.storyboard in Resources */,
 				56016668205272D7007996AD /* Assets.xcassets in Resources */,
+				56A8847820527D4C00A0AB40 /* Lenna.png in Resources */,
 				56016666205272D7007996AD /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -200,7 +269,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				56016663205272D7007996AD /* ViewController.swift in Sources */,
+				56016685205275C8007996AD /* CIImage+Extension.swift in Sources */,
+				56016683205275B5007996AD /* CIFilter+Extension.swift in Sources */,
 				56016661205272D7007996AD /* AppDelegate.swift in Sources */,
+				5601668A205277D4007996AD /* FilterCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
