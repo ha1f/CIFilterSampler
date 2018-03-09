@@ -27,8 +27,9 @@
                                     <constraint firstAttribute="width" constant="256" id="i56-ZS-Cm5"/>
                                 </constraints>
                             </imageView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="uvk-RP-2OI">
-                                <rect key="frame" x="177" y="192" width="20" height="20"/>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="uvk-RP-2OI">
+                                <rect key="frame" x="169" y="184" width="37" height="37"/>
+                                <color key="color" red="0.23981682665314341" green="0.54689074962504247" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="qtu-IJ-qKo">
                                 <rect key="frame" x="0.0" y="579" width="375" height="88"/>
