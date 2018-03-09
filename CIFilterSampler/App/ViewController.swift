@@ -9,7 +9,6 @@
 import UIKit
 import SafariServices
 
-// TODO: 処理中にぐるぐるを出す
 class ViewController: UIViewController, UICollectionViewDelegate, UICollectionViewDataSource, UITableViewDataSource {
     @IBOutlet var tableView: UITableView! {
         didSet {
@@ -36,6 +35,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             referenceButton.action = #selector(onReferenceButtonTapped)
         }
     }
+    @IBOutlet var indicator: UIActivityIndicatorView!
     
     var filterNames: [String] = [] {
         didSet {
@@ -65,6 +65,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
         
         filterNames = CIFilter.filterNames(inCategory: kCICategoryStillImage)
         imageView.image = #imageLiteral(resourceName: "Lenna.png")
+        indicator.stopAnimating()
     }
     
     private func updateTitle() {
@@ -72,6 +73,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
     }
     
     private func update(withFilterName filterName: String) {
+        indicator.startAnimating()
         guard filterName != currentFilter?.filterName else {
             return
         }
@@ -108,6 +110,7 @@ class ViewController: UIViewController, UICollectionViewDelegate, UICollectionVi
             let image = filter.outputImage?.asUIImage()
             DispatchQueue.main.async { [weak self] in
                 self?.imageView.image = image
+                self?.indicator.stopAnimating()
             }
         }
         
