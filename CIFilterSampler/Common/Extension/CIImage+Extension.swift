@@ -41,4 +41,9 @@ extension CIImage {
     func asUIImage(scale: CGFloat = UIScreen.main.scale, orientation: UIImageOrientation = .up) -> UIImage {
         return UIImage(ciImage: self, scale: scale, orientation: orientation)
     }
+    
+    /// Convert to CGImage
+    func asCGImage(using context: CIContext = CIContext(), from rect: CGRect? = nil) -> CGImage? {
+        return context.createCGImage(self, from: rect ?? extent.standardized)
+    }
 }
