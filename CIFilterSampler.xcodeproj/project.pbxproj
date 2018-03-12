@@ -19,6 +19,8 @@
 		56A8847820527D4C00A0AB40 /* Lenna.png in Resources */ = {isa = PBXBuildFile; fileRef = 56A8847720527D4C00A0AB40 /* Lenna.png */; };
 		56A8847A2052967500A0AB40 /* ParameterCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A884792052967500A0AB40 /* ParameterCell.swift */; };
 		56A8847C20561F1000A0AB40 /* CGImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8847B20561F1000A0AB40 /* CGImage+Extension.swift */; };
+		56A8847E205627F800A0AB40 /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8847D205627F800A0AB40 /* UIImage+Extension.swift */; };
+		56A8848020562EC600A0AB40 /* CGSize+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 56A8847F20562EC600A0AB40 /* CGSize+Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -48,6 +50,8 @@
 		56A8847720527D4C00A0AB40 /* Lenna.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Lenna.png; sourceTree = "<group>"; };
 		56A884792052967500A0AB40 /* ParameterCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ParameterCell.swift; sourceTree = "<group>"; };
 		56A8847B20561F1000A0AB40 /* CGImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGImage+Extension.swift"; sourceTree = "<group>"; };
+		56A8847D205627F800A0AB40 /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
+		56A8847F20562EC600A0AB40 /* CGSize+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGSize+Extension.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -121,6 +125,8 @@
 				56016682205275B5007996AD /* CIFilter+Extension.swift */,
 				56016684205275C8007996AD /* CIImage+Extension.swift */,
 				56A8847B20561F1000A0AB40 /* CGImage+Extension.swift */,
+				56A8847D205627F800A0AB40 /* UIImage+Extension.swift */,
+				56A8847F20562EC600A0AB40 /* CGSize+Extension.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -277,7 +283,9 @@
 				56016663205272D7007996AD /* ViewController.swift in Sources */,
 				56A8847A2052967500A0AB40 /* ParameterCell.swift in Sources */,
 				56016685205275C8007996AD /* CIImage+Extension.swift in Sources */,
+				56A8847E205627F800A0AB40 /* UIImage+Extension.swift in Sources */,
 				56016683205275B5007996AD /* CIFilter+Extension.swift in Sources */,
+				56A8848020562EC600A0AB40 /* CGSize+Extension.swift in Sources */,
 				56016661205272D7007996AD /* AppDelegate.swift in Sources */,
 				56A8847C20561F1000A0AB40 /* CGImage+Extension.swift in Sources */,
 				5601668A205277D4007996AD /* FilterCell.swift in Sources */,

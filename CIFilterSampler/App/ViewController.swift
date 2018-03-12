@@ -43,6 +43,9 @@ class ViewController: UIViewController {
         }
     }
     lazy var ciImage = CIImage.extractOrGenerate(from: #imageLiteral(resourceName: "Lenna.png"))!
+    lazy var sampleMaskImage = CIImage.extractOrGenerate(from: UIImage.circle(size: CGSize(width: 256, height: 256), color: .red, scale: 1.0)!)
+    lazy var sampleTargetImage = CIImage.extractOrGenerate(from: UIImage.circle(size: CGSize(width: 256, height: 256), color: .blue, scale: 1.0)!)
+    lazy var sampleBackgroundImage = CIImage.extractOrGenerate(from: UIImage.empty(size: CGSize(width: 256, height: 256), color: .cyan, scale: 1.0)!)
     
     var currentFilter: CIFilter? {
         didSet {
@@ -69,8 +72,8 @@ class ViewController: UIViewController {
         indicator.startAnimating()
         
         filterNames = CIFilter.filterNames(inCategory: kCICategoryStillImage)
-            .filter { CIFilter(name: $0)?.outputKeys.contains("outputImage") ?? false }
-        imageView.image = #imageLiteral(resourceName: "Lenna.png")
+            .filter { CIFilter(name: $0)?.outputKeys.contains(kCIOutputImageKey) ?? false }
+        resetFilter()
         indicator.stopAnimating()
     }
     
@@ -78,17 +81,27 @@ class ViewController: UIViewController {
         self.title = currentFilter?.displayName ?? currentFilter?.filterName
     }
     
+    private func resetFilter() {
+        if let indexPath = tableView.indexPathForSelectedRow {
+            tableView.deselectRow(at: indexPath, animated: true)
+        }
+        imageView.image = #imageLiteral(resourceName: "Lenna.png")
+        currentParameters = [:]
+        currentFilter = nil
+    }
+    
     private func update(withFilterName filterName: String) {
         indicator.startAnimating()
-        // 同じフィルタなら何もしない
+        // 同じフィルタならreset
         guard filterName != currentFilter?.filterName else {
+            resetFilter()
             indicator.stopAnimating()
             return
         }
         currentParameters = [:]
         // ありえないはずだが、filterの初期化に失敗したらリセット
         guard let filter = CIFilter(name: filterName) else {
-            currentFilter = nil
+            resetFilter()
             indicator.stopAnimating()
             return
         }
@@ -111,6 +124,44 @@ class ViewController: UIViewController {
             // messageならhome page url
             if inputKey == "inputMessage" {
                 let data = "https://ha1f.net".data(using: .isoLatin1)
+                currentParameters[inputKey] = data
+                filter.setValue(data, forKey: inputKey)
+                return
+            }
+            // maskならサークル
+            if inputKey == kCIInputMaskImageKey {
+                currentParameters[inputKey] = sampleMaskImage
+                filter.setValue(sampleMaskImage, forKey: inputKey)
+                return
+            }
+            // timeなら0.5
+            if inputKey == kCIInputTimeKey {
+                currentParameters[inputKey] = 0.5
+                filter.setValue(NSNumber(value: 0.5), forKey: inputKey)
+                return
+            }
+            // targetImageならcircle
+            if inputKey == kCIInputTargetImageKey {
+                currentParameters[inputKey] = sampleTargetImage
+                filter.setValue(sampleTargetImage, forKey: inputKey)
+                return
+            }
+            // backgroundImageならcircle
+            if inputKey == kCIInputBackgroundImageKey {
+                currentParameters[inputKey] = sampleBackgroundImage
+                filter.setValue(sampleBackgroundImage, forKey: inputKey)
+                return
+            }
+            // inputTextならTEXT
+            if inputKey == "inputText" {
+                let data = NSAttributedString(string: "TEXT")
+                currentParameters[inputKey] = data
+                filter.setValue(data, forKey: inputKey)
+                return
+            }
+            // transformなら30°
+            if inputKey == kCIInputTransformKey {
+                let data = CGAffineTransform(rotationAngle: CGFloat.pi / 6)
                 currentParameters[inputKey] = data
                 filter.setValue(data, forKey: inputKey)
                 return
@@ -138,6 +189,7 @@ class ViewController: UIViewController {
             }
             
             var image: UIImage?
+            // 無限extent対策で、ある程度大きかったらContextで絞る
             if ciImage.extent.width > CGFloat(1000) {
                 image = ciImage.asCGImage(using: self?.ciContext ?? CIContext(), from: CGRect(origin: .zero, size: CGSize(width: 256, height: 256)))?.asUIImage()
             } else {
